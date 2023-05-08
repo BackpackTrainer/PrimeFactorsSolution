@@ -18,7 +18,13 @@ pipeline {
             }
         }
 
-
+        stage ('Testing Stage') {
+            steps  {
+                withMaven(maven : 'maven_3_9_1') {
+                    bat 'mvn test'
+                }
+            }
+        }
 
         stage ('Sonar Scan') {
         steps {
