@@ -9,6 +9,15 @@ pipeline {
                 }
             }
         }
+
+        stage ('Maven install') {
+            steps  {
+                withMaven(maven : 'maven_3_9_1') {
+                    bat 'mvn install'
+                }
+            }
+        }
+
         stage ('Testing Stage') {
             steps  {
                 withMaven(maven : 'maven_3_9_1') {
@@ -17,12 +26,10 @@ pipeline {
             }
         }
 
-
         stage ('Sonar Scan') {
         steps {
             withSonarQubeEnv('Sonar_Qube') {
                 bat 'mvn sonar:sonar'
-
 
                 }
             }
