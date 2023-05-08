@@ -6,17 +6,10 @@ pipeline {
             steps  {
                 withMaven(maven : 'maven_3_9_1') {
                     bat 'mvn clean compile'
+                     bat 'mvn install'
                 }
             }
-        }
-
-        stage ('Maven install') {
-            steps  {
-                withMaven(maven : 'maven_3_9_1') {
-                    bat 'mvn install'
-                }
-            }
-        }
+    
 
         stage ('Testing Stage') {
             steps  {
