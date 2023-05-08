@@ -16,6 +16,14 @@ pipeline {
                 }
             }
         }
+
+        stage ('Deploy Stage') {
+            steps  {
+                withMaven(maven : 'maven_3_9_1') {
+                    bat 'mvn deploy'
+                }
+            }
+        }
     }
 
 
