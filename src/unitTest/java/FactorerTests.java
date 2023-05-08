@@ -1,7 +1,9 @@
 package unitTest.java;
 
 import main.java.Factorer;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 
@@ -12,27 +14,24 @@ import static org.junit.Assert.assertNotNull;
 
 public class FactorerTests {
 
-        Factorer factorer = new Factorer();
-        List<Integer> factors  = new ArrayList<Integer>();;
-        List<Integer> expectedResult = new ArrayList<Integer>();;
+        Factorer factorer;
+        List<Integer> factors;;
+        List<Integer> expectedResult;;
         int numberToBeFactored;
 
-//        @BeforeEach
-//        public void setUp()  {
-//            factorer = new Factorer();
-//            factors = new ArrayList<Integer>();
-//            expectedResult = new ArrayList<Integer>();
-//
-//        }
-//
-//        @AfterEach
-//        public void teardown()  {
-//            factorer = null;
-//            factors = null;
-//            expectedResult = null;
-//        }
+        @Before
+        public void setUp()  {
+            factorer = new Factorer();
+            factors = new ArrayList<Integer>();
+            expectedResult = new ArrayList<Integer>();
+        }
 
-
+        @After
+        public void teardown()  {
+            factorer = null;
+            factors = null;
+            expectedResult = null;
+        }
 
         @Test
         public void testConstruction() {
@@ -162,7 +161,5 @@ public class FactorerTests {
 
             Assert.assertEquals(expectedResult, factors);
         }
-
-
     }
 
