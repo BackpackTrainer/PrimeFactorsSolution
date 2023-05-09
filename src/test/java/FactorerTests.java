@@ -1,4 +1,4 @@
-package unitTest.java;
+package test.java;
 
 import main.java.Factorer;
 import org.junit.After;
