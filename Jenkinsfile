@@ -12,7 +12,6 @@ pipeline {
                     }
                 }
             }
-    
 
         stage ('Testing Stage') {
             steps  {
@@ -23,10 +22,9 @@ pipeline {
         }
 
         stage ('Sonar Scan') {
-        steps {
-            withSonarQubeEnv('Sonar_Qube') {
-                bat 'mvn sonar:sonar'
-
+            steps {
+                withSonarQubeEnv('Sonar_Qube') {
+                    bat 'mvn sonar:sonar'
                 }
             }
         }
